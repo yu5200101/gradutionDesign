@@ -1,0 +1,185 @@
+<import src="/dist/quantity/index.wxml" />
+<swiper indicator-dots="{{indicatorDots}}"  
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" style="height: 355px">  
+      <block wx:for="{{imgUrls}}" wx:key="">  
+        <swiper-item>  
+            <image src="{{item._url}}" class="slide-image"  mode="{{scaleToFill}}"/>  
+        </swiper-item>  
+      </block>  
+</swiper> 
+
+<view class="container">
+  <view class="zan-panel" style="margin-top:0px">
+    <view class="zan-cell good_name">
+      <view class="zan-cell__bd" >
+            <view>{{menu_name}}</view>
+            <view class="good_price">￥{{price}}</view>
+      </view>
+      <view class="zan-cell__ft" bindtap="collect" >
+            <view class="collect_{{iscollect}} collect_img"></view>
+            <view class="coltxt">{{coltxt}}</view>
+      </view>
+    </view>
+    <view class="zan-cell">
+      <view class="zan-cell__bd smallsize">运费：￥10.00 - 15.00</view>
+      <view class="zan-cell__ft smallsize">剩余:{{good_number}}</view>
+    </view>
+    <view class="zan-cell">
+      <view class="zan-cell__bd">
+        <button class="zan-btn zan-btn--mini zan-btn--danger zan-btn--plain">满减</button>
+        <button class="zan-btn zan-btn--mini zan-btn--danger zan-btn--plain">包邮</button>
+      </view>  
+      <view class="zan-cell__ft" style="font-size:12px">满69元，包邮</view>
+    </view>
+  </view>
+
+  <view class="zan-panel" style="height:38px;">
+    <view class="zan-cell zan-cell--access" bindtap="selectAttributes">
+      <view class="zan-cell__bd" style="font-size:13px">产品参数</view>
+      <view class="zan-cell__ft smallsize"></view>
+    </view>
+  </view>
+
+  <view class="zan-panel" style="height:40px;">
+    <view class="zan-cell">
+      <image src="../../images/ok.png" style="width:20px;height:20px"/>
+      <view class="zan-cell__bd" style="font-size:12px">
+        店铺认证  
+      </view>  
+      <image src="../../images/ok.png" style="width:20px;height:20px"/>
+      <view class="zan-cell__bd" style="font-size:12px">
+        担保交易  
+      </view>
+    </view>
+  </view>
+
+
+  <view class="zan-panel">
+    <view class="zan-cell">
+      <view class="zan-cell__bd">商品详情</view>
+    </view>
+    <view>
+        <view class="desc" style="margin-bottom:50px" wx:for="{{imgUrls}}" wx:key="">
+            <view style="text-align:center;">{{menu_name}}详情</view>
+            <view style="text-align:center;margin:0px auto">
+               <image src="{{item._url}}" style="height:240px;width:280px"/>
+            </view>
+        </view> 
+    </view>  
+  </view>
+
+  <view class ="comment">  
+    <text class="comment_num">评价详情</text>  
+    <view class="people">
+            <image src ="{{commentDetail[0].userPic}}" class="comment_img"></image>
+            <text class="comment_name">{{commentDetail[0].userNick}}</text>
+            <text class="comment_tel">{{commentDetail[0].createdAt}}</text>                  
+    </view>
+    <view><text class="comment_con">{{commentDetail[0].content}}</text></view>
+    <image src="{{commentDetail[0].goodPic}}" widthFix="true" class="comment_src"></image>
+    <navigator class="btn" url="../comment/index?id={{id}}"><text>查看全部评价</text></navigator>
+</view>
+
+</view>
+<!--下单-->
+        <view class="Bill-layer" wx:if="{{showCart&&sumNum>0}}" bindtap="hiddenLayer"></view>
+        <view class="Bill" >
+            <block wx:if="{{showCart&&sumNum>0}}">
+                <view class="clearCart">
+                    <button bindtap="clearCart">清空购物车</button>
+                </view>
+                <view class="book-result-detail"  wx:for="{{menu}}" wx:for-index="idx">
+                    <view wx:for="{{item.data}}" wx:for-index="jdx" wx:if="{{item.num>0}}">
+                        <text>{{item.name}}</text>
+                        <view class="operations">
+                            <button class="reduce" data-num="{{item.num}}" bindtap="reduceFoodNum" wx:if="{{item.num>0}}" data-idx="{{idx}}" data-jdx="{{jdx}}" data-price="{{item.price}}" data-foodName="{{item.name}}"></button>
+                                <text wx:if="{{item.num>0}}">{{item.num}}</text>
+                            <button class="add" data-num="{{item.num}}" bindtap="addFoodNum"  data-idx="{{idx}}
+                                data-jdx="{{jdx}}" data-price="{{item.price}}" data-foodName="{{item.name}}"></button>
+                        </view>
+                    </view>
+                </view>               
+            </block>
+            
+            <view class="takeBill {{showCart?'':'bdt'}}" >
+                 <view class="icon-wrap" bindtap="index">
+                    <view class="zan-icon zan-icon-home" style="font-size: 15px"></view>
+                    <view class= style="font-size: 11px;margin-top:-5px">首页</view>
+                </view>
+                <view class="icon-wrap" bindtap="cart">
+                    <view class="zan-icon zan-icon-shopping-cart" style="font-size: 15px;"></view>
+                    <view class="icon-classname" style="font-size: 11px;margin-top:-5px;">购物车</view>
+                </view>
+                <button class="box-cart" bindtap="placeOrder" data-name="cart">
+                加入购物车
+                </button>
+                <button class="box-right" bindtap="placeOrder" data-name="order">
+                立即购买
+                </button>
+            </view>
+        </view>
+<!--弹出框-->
+<view class="commodity_screen" bindtap="hideModal_other" wx:if="{{showModal}}"></view>  
+<!-- 属性开头-->
+<view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModal}}">
+  <view class="zan-panel" style="margin-top:0px">
+      <view class="zan-cell">
+          <view>版次: {{parameter.edition}}</view>          
+      </view>
+      <view class="zan-cell">
+          <view>印刷时间: {{parameter.editDate}}</view>
+      </view>
+      <view class="zan-cell">
+          <view>开本: {{parameter.format}}</view>
+      </view>
+      <view class="zan-cell">
+          <view>纸张：{{parameter.paper}}</view>
+      </view>
+      <view class="zan-cell">
+          <view>包装：{{parameter.pack}}</view>
+      </view>
+      <view class="zan-cell">
+          <view>是否套装: {{parameter.isSuit}}</view>
+      </view>
+      <view class="zan-cell">
+          <view>国际标准书号ISBN：{{parameter.bookNum}}</view>
+      </view>
+      <view bindtap="click_cancel_other" class="finish">完成</view>
+  </view>
+</view>
+
+<!-- 属性末尾 -->
+
+<!--弹出框-->
+<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>  
+<view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">  
+<!--对话框标题-->  
+<view class="zan-panel" style="margin-top:0px">
+    <view class="zan-cell">
+      <image src="{{menu_logo._url}}" style="height:60px;width:60px;margin-right:10px"/> 
+      <view class="zan-cell__bd" style="">{{menu_name}}</view>
+      <view class="zan-cell__ft" style="color:red">￥{{price}}</view>
+      <view class="zan-icon zan-icon-close" style="font-size: 15px;position:relative;top:-30px;right:-10px" bindtap="click_cancel"></view>
+    </view>
+    <view class="zan-cell">
+      <view class="zan-cell__bd smallsize">运费：￥10.00 - 15.00</view>
+      <view class="zan-cell__ft smallsize">剩余:{{good_number}}</view>
+    </view>
+    <view class="zan-cell">
+      <view class="zan-cell__bd">
+        购买数量：
+      </view>
+      <view class="zan-cell__ft">
+        <view>
+            <template is="zan-quantity" data="{{ ...quantity1, componentId: 'quantity1' }}" />
+        </view>
+      </view>
+    </view>
+  </view>
+<!--对话框按钮-->  
+    <view class="btn-view"  bindtap="{{actionType}}">  
+      <view class="btn-cancel">    
+              下一步 
+      </view>  
+    </view>  
+</view>  

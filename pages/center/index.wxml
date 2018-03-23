@@ -1,0 +1,137 @@
+<loading hidden="{{upImg}}">
+  头像上传中...
+</loading>
+<loading hidden="{{loading}}">
+  页面加载中...
+</loading>
+<view class="zan-pannel background">
+    <view class="g-bda-userinfo">
+        <image class="userinfo-avatar" src="{{userPic}}"></image>
+        <view class="usern"><text class="userinfo-nickname">大学：{{nickCollege}}</text></view>
+        <view class="usern"><text class="userinfo-nickname">昵称：{{nickName}}</text></view>
+    </view>
+</view>
+<view class="container">
+  <view class="zan-panel">
+
+    <view class="zan-cell">
+      <view class="zan-cell__bd">
+          <view class="zan-pull-left">我的订单</view>
+          <navigator url="/pages/order/index">
+            <view class="zan-pull-right smallsize">查看全部订单 ></view>
+          </navigator>
+      </view>
+    </view>
+
+    <view class="zan-cell" style="margin:0px;padding:12px 0px;">
+      <view class="zan-cell__bd">
+            <navigator url ="/pages/mine_collect/index">
+              <view class="icon-wrap">
+                  <image src="http://bmob-cdn-14082.b0.upaiyun.com/2017/09/14/fa4daab740df361980980cd037e662bc.png" class="icon_img"></image>
+                  <view class="icon-classname smallsize">我的收藏</view>
+              </view>
+            </navigator>
+            <navigator url ="/pages/mine_pub/index">
+            <view class="icon-wrap">
+                <image src="http://bmob-cdn-14082.b0.upaiyun.com/2017/09/14/0947df4f40893c58802d0f9611e50930.png" class="icon_img"></image>
+                <view class="icon-classname smallsize">我的发布</view>
+            </view>
+            </navigator>
+            <navigator url ="/pages/suggback/suggback">
+            <view class="icon-wrap">
+                <image src="http://bmob-cdn-14082.b0.upaiyun.com/2017/09/14/fa81be8a40d02b07800e137ce4c9deb0.png" class="icon_img"></image>
+                <view class="icon-classname smallsize">意见反馈</view>
+            </view>
+            </navigator>
+            <navigator url ="/pages/about/about">
+            <view class="icon-wrap">
+                <image src="http://bmob-cdn-14082.b0.upaiyun.com/2017/09/14/b65aecd640282a1480a45aeae6adb9af.png" class="icon_img"></image>
+                <view class="icon-classname smallsize">关于</view>
+            </view>
+            </navigator>
+      </view>
+    </view>
+
+  </view>
+
+  <view class="zan-panel">
+     <view class="zan-cell">
+      <view class="zan-cell__bd" bindtap="cart">
+        <view class="zan-pull-left">购物车</view>
+        <view class="zan-pull-right smallsize">查看购物车 ></view>
+      </view>
+    </view>
+  </view>
+  <view class="zan-panel">
+     <view class="zan-cell">
+      <view class="zan-cell__bd" bindtap="modifyNick">
+        <view class="zan-pull-left">修改昵称</view>
+        <view class="zan-pull-right smallsize">></view>
+      </view>
+    </view>
+  </view>
+  <view class="zan-panel">
+     <view class="zan-cell">
+      <view class="zan-cell__bd" bindtap="modifyImg">
+        <view class="zan-pull-left">修改头像</view>
+        <view class="zan-pull-right smallsize">></view>
+      </view>
+    </view>
+  </view>
+  <view class="zan-panel">
+     <view class="zan-cell">
+      <view class="zan-cell__bd" bindtap="modify_college">
+        <view class="zan-pull-left">修改大学</view>
+        <view class="zan-pull-right smallsize">></view>
+      </view>
+    </view>
+  </view>
+  <view class="zan-panel">
+     <view class="zan-cell">
+      <view class="zan-cell__bd" bindtap="modify_addr">
+        <view class="zan-pull-left">修改地址</view>
+        <view class="zan-pull-right smallsize">></view>
+      </view>
+    </view>
+  </view>
+  <view class="zan-panel">
+     <view class="zan-cell">
+      <view class="zan-cell__bd" bindtap="enter_administrator">
+        <view class="zan-pull-left">管理员平台</view>
+        <view class="zan-pull-right smallsize">></view>
+      </view>
+    </view>
+  </view>
+  
+<!--弹出框-->
+<view class="modify_nick_layer" wx:if="{{isModifyNick}}" bindtap="hiddenComment"></view>
+<!-- 修改昵称界面开头 -->
+  <view class="modify_nick" wx:if="{{isModifyNick}}">
+    <form bindsubmit="modyfiNick" bindreset="formReset">
+      <input placeholder="请输入昵称" value="{{userName}}" bindinput="bindKeyInput" name="changeNick" />
+      <button class="modify_nick_yes" formType="submit" disabled="{{isdisabled}}" loading="{{modifyLoading}}">保存</button>
+    </form>
+  </view>
+<!-- 修改昵称界面结尾 -->
+
+<!--弹出框-->
+<view class="modify_nick_layer" wx:if="{{isModifyCollege}}" bindtap="hiddenCollege"></view>
+<!-- 修改大学开头 -->
+  <view class="modify_nick" wx:if="{{isModifyCollege}}">
+    <form bindsubmit="modif_college" bindreset="formReset">
+      <input placeholder="请输入大学" value="{{userCollege}}" bindinput="bindCollegeInput" name="changeCollege" />
+      <button class="modify_nick_yes" formType="submit" disabled="{{isdisabled}}" loading="{{modifyLoading}}">保存</button>
+    </form>
+  </view>
+<!-- 修改大学界面结尾 -->
+
+  <view class="page__ft" style="height:50px">
+      <view class="page__bd page__bd_spacing">
+        <view class="weui-footer ">
+          <view class="weui-footer__text">Copyright © 2017 www.ruyuan.cn</view>
+        </view>
+      </view>
+  </view>
+</view>
+
+

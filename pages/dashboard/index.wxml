@@ -1,0 +1,58 @@
+<view class = "pos" bindtap="get_pos">
+      <image src ="../../images/addr.png" class = "pos_img"></image>
+      <text class="pos_txt">{{position}}</text>
+      <image src="../../images/sel.png" class = "pos_r_img"></image>
+</view>
+<swiper  indicator-dots="{{indicatorDots}}"  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">  
+      <!--广告banner-->
+      <block>  
+        <swiper-item>  
+            <image src="http://bmob-cdn-14082.b0.upaiyun.com/2017/09/15/78ba73dd401e182a80e9aa9838e84d24.jpg" mode="scaleToFit" class="slide-image" />  
+        </swiper-item>  
+      </block>  
+      <block>  
+        <swiper-item>  
+            <image src="http://bmob-cdn-14082.b0.upaiyun.com/2017/09/15/ad8dfa5d40ddba0c809df570ace106ba.jpg" mode="scaleToFit" class="slide-image" />  
+        </swiper-item>  
+      </block>
+      <block>  
+        <swiper-item>  
+            <image src="http://bmob-cdn-14082.b0.upaiyun.com/2017/09/14/7b91e3a7402a0a6c8025641b36b4e42b.jpg" mode="scaleToFit" class="slide-image" />  
+        </swiper-item>  
+      </block>
+</swiper> 
+<view class="zan-cell zan-cell--access promise" >
+      <image src="../../images/ok.png" class="brand"/>
+      <view class="zan-cell__bd">
+        品牌保障  
+      </view>  
+      <image src="../../images/bao.png" class="sell" />
+      <view class="zan-cell__bd">
+        担保交易  
+      </view>
+      <image src="../../images/serven.png" class="sell"/>
+      <view class="zan-cell__bd">
+        7天包退  
+      </view>
+      <view class="zan-cell__ft smallsize"></view>
+</view>
+
+<view class="container">
+    <view class="zan-panel">
+    <view class="zan-cell zan-cell--access">
+      <image src="http://bmob-cdn-14082.b0.upaiyun.com/2017/09/15/54898340400e52a080d99e92dc2a24fd.jpg" class ="col_img"></image>
+      <view class="zan-cell__bd">推荐商品</view>
+      <view class="zan-cell__ft smallsize" bindtap="more">更多商品</view>
+    </view>
+        
+        <view wx:for="{{goods}}" wx:key="good" wx:for-index="idx" class="{{item.class_value}}">
+        <navigator url="/pages/good/index?id={{item.id}}">
+          <image class="goods-img" src="{{item.menu_logo._url}}"/>
+          <view class="good-name">{{item.menu_name}}</view>
+          <view class="good-price">￥{{item.price}}</view>
+        </navigator>
+        </view>
+        
+       
+    </view>
+</view>

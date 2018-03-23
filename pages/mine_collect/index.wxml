@@ -1,0 +1,9 @@
+<view wx:for="{{goods}}" wx:key="good" wx:for-index="idx" class="good">
+<navigator url="/pages/good/index?id={{item.id}}" class="list_good">
+      <image class="goods-img" src="{{item.menu_logo._url}}"/>
+      <view class="good_con">
+	      <view class="good-name">{{item.menu_name}}</view>
+	      <view class="good-price">￥{{item.price}}</view>
+	  </view>
+</navigator>
+</view>       

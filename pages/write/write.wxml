@@ -1,0 +1,35 @@
+<loading hidden="{{loading}}">
+  页面初始化中...
+</loading>
+<form bindsubmit="sendNewBook" >
+    <view class="add_pic" bindtap="uploadPic" wx-if="{{!isSrc}}">
+        <view>添加图片（选）</view>
+    </view>
+    <view wx:if="{{isSrc}}" class="image_box">
+        <view  class="picPre">
+            <image src="{{src}}"  mode="scaleToFilll"></image>
+            <view bindtap="clearPic"></view>
+        </view>
+    </view>
+    
+    <input placeholder="输入书名"  class="add_title" name = "title"/>
+    <input placeholder="输入寝室号"  class="add_title" name = "dorm"/>
+    <input placeholder="输入价格"  class="add_title" name = "price"/>
+      <view class="add_title">
+        <picker
+          mode="selector"
+          range="{{ typetra }}"
+          bindchange="onTypetraChange"
+          name = "typetraIndex"
+          value = "{{typetraIndex}}"
+        >
+          {{typetra[typetraIndex]}}
+        </picker>
+      </view>
+    
+    <view  class="addConent">
+        <textarea  placeholder="详细信息" maxlength="1000"  name = "content"/>
+    </view>
+
+    <button loading="{{isLoading}}"  hover-start-time="200" disabled="{{isdisabled}}" formType="submit">发布</button>
+ </form>

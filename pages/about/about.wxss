@@ -1,0 +1,24 @@
+
+.box{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	padding: 200rpx 0;
+	box-sizing: border-box;
+}
+.about_img{
+	width:200rpx;
+	height: 200rpx;
+}
+.about_txt{
+	margin-top: 20px;
+	font-size: 16px;
+}
+.made{
+	width: 100%;
+	position: fixed;
+	text-align: center;
+	font-size: 15px;
+	bottom:20px;
+}

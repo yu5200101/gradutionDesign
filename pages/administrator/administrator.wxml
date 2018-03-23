@@ -1,0 +1,7 @@
+<view class = "box">
+    <form bindsubmit = "sendAccount">
+       <input class ="add_account" name="account" placeholder="输入账号"/>
+       <input class="add_password" name="password" placeholder="输入密码" password="true"/>
+       <button formType="submit" class="btn">登录</button>
+    </form>
+</view>

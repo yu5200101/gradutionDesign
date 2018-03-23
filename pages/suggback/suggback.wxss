@@ -1,0 +1,85 @@
+page {  
+  display: block;  
+  min-height: 100%;  
+  background-color:#f6f6f6;
+  font-family: "微软雅黑";
+  font-size: 30rpx;
+  color:#353535;
+  position: relative;
+}
+.item{
+  height:90rpx;
+  align-items: center;
+  display:flex;
+  margin-left:30rpx;
+  border-bottom:1rpx solid #eee;
+  font-size: 16px;
+}
+
+input placeholder{
+  color:red;
+}
+
+.save{
+  width:92%;
+  margin-top:30rpx;
+  background-color: #c79147;
+  color:#fff;
+}
+.right{
+  padding-left: 30rpx;
+  width:75%;
+  display:flex;
+}
+.addre{
+  width:75%;
+}
+.item_pro{
+	display: flex;
+	flex-direction: column;
+	margin:30rpx;
+  border-bottom:1rpx solid #eee;
+}
+.item_bot{
+	width: 100%;
+	height: 400rpx;
+}
+.add_pic{
+  margin-top:20rpx;
+  width:100%;
+  height:100px;
+  line-height:200rpx;
+  text-align:center;
+  background:url(http://bmob-cdn-7744.b0.upaiyun.com/2016/11/23/95953c8b40f0d089800ebec438581cc4.png) no-repeat left center;
+  background-size:160rpx auto;
+  padding-left: 20px;
+  color: #b2b2b2;
+
+}
+.image_box{
+  width:100%;
+  height: 100px;
+  background:#fff;
+  margin-top:20rpx;
+  margin-bottom:20rpx;
+  padding:10px 40rpx 10rpx;
+}
+.picPre{
+  width:50%;
+  margin:0 auto;
+  position:relative;
+  box-sizing:border-box;
+}
+.picPre image{
+  width:100px;
+  height:100px;
+}
+.picPre view{
+  position: absolute;
+  right:0px;
+  top:-20rpx;
+  width:15px;
+  height:15px;
+  background:url(http://bmob-cdn-7744.b0.upaiyun.com/2016/11/23/23e708d8401db28080a47d384712f765.png) no-repeat;
+  background-size: cover;
+}

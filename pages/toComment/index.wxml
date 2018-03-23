@@ -1,0 +1,39 @@
+<loading hidden="{{loading}}">
+  页面初始化中...
+</loading>
+<form bindsubmit="formSubmit" report-submit="true">
+ <view class="single"  wx:for="{{detailResult}}" wx:key="{{index}}" >
+        <view class="item" data-index = "{{index}}">
+        
+            <view class = "pro_con">
+			        <image src="{{item.pic}}"></image> 
+			        <view class="zan-cell__bd">{{item.name}}</view>
+	        </view>
+
+			<!-- 上传图片 -->
+			<view class = "item_pro">
+			<text>上传图片</text>
+			<view class="add_pic" bindtap="uploadPic" wx:if="{{!item.isSrc}}" data-index = "{{index}}">
+			    </view>
+			    <view wx:if="{{item.isSrc}}" class="image_box">
+			        <view  class="picPre">
+			            <image src="{{item.src}}"  mode="scaleToFilll" ></image>
+			            <view bindtap="clearPic" data-index = "{{index}}"></view>
+			        </view>
+			    </view>
+			</view>
+
+			<!-- 问题和意见 -->
+			<view class = "item_pro">
+				<text>问题与意见</text>
+				<view class = "item_bot">
+				      <textarea  placeholder="详细信息" maxlength="1000"  name = "content" bindinput = "setContent"  data-index = "{{index}}"/>
+				</view>
+			</view>
+
+			    
+			
+		</view>
+</view>
+<button class = "save" loading="{{isLoading}}"  hover-start-time="200" disabled="{{isdisabled}}" formType="submit">保存</button>
+</form>

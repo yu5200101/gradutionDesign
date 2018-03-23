@@ -1,0 +1,34 @@
+.good{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.list_good{
+  display: flex;
+  flex-direction: row;
+  background: #ffffff;
+  border-top: 1rpx solid #e5e5e5;
+  border-bottom: 1rpx solid #e5e5e5;
+  padding: 10px;
+}
+.good_con{
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+.goods-img{
+  width:100px;
+  height:100px;
+}
+
+.good-name{
+  text-align:center;
+  font-size: 15px;
+}
+
+.good-price{
+  color:red;
+  font-size: 25px;
+}

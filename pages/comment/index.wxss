@@ -1,0 +1,40 @@
+.comment{
+    padding: 10rpx 20rpx;
+    border-bottom: 3px solid #f5f6f7;
+    background: #ffffff;
+    margin-top: 10px;
+}
+.people{
+  flex-direction: row;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  margin-top: 10rpx;
+}
+.comment_num{
+  font-size:14px;
+}
+.comment_img{
+  width: 98rpx;
+  height: 98rpx;
+  border-radius: 50%;
+}
+.comment_name{
+  line-height: 98rpx;
+  font-size:15px;
+  margin-left:10rpx;
+}
+.comment_tel{
+  line-height: 98rpx;
+  font-size: 15px;
+  position: absolute;
+  right: 20px;
+}
+.comment_con{
+  font-size:16px;
+  margin:10rpx 20rpx;
+}
+.comment_src{
+  width:300rpx;
+  height:300rpx;
+}

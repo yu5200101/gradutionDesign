@@ -1,0 +1,7 @@
+<view class="box">
+      <image src="http://bmob-cdn-14082.b0.upaiyun.com/2017/10/24/625c5925405d2a52801ba323ecb4fe9e.png" class="about_img"></image>
+      <text class="about_txt">ster快书 1.0</text>
+</view>
+<view class="made">
+       <text>制作人：喻如元</text>
+</view>

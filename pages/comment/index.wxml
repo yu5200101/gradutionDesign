@@ -1,0 +1,11 @@
+<view  wx:for="{{commentList}}" wx:key="" >
+	<view class ="comment" >    
+	    <view class="people">
+	            <image src ="{{item.userPic}}" class="comment_img"></image>
+	            <text class="comment_name">{{item.userNick}}</text>
+	            <text class="comment_tel">{{item.createdAt}}</text>                 
+	    </view>
+	    <view><text class="comment_con">{{item.content}}</text></view>
+	    <image src="{{item.goodPic}}" widthFix="true" class="comment_src"></image>
+	</view>
+</view>

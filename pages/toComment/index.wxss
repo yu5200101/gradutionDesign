@@ -1,0 +1,97 @@
+page {  
+  display: block;  
+  min-height: 100%;  
+  background-color:#f6f6f6;
+  font-family: "微软雅黑";
+  font-size: 30rpx;
+  color:#353535;
+  position: relative;
+}
+
+input placeholder{
+  color:red;
+}
+
+.single{
+  width: 100%;
+}
+.item{
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  border:1rpx solid #eee;
+  background: #ffffff;
+}
+
+.save{
+  width: 60%;
+  margin-top:30rpx auto;
+  background-color: #c79147;
+  color:#fff;
+}
+.pro_con{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #ffffff;
+  padding:10px;
+}
+.pro_con image{
+  height:60px;
+  width:60px;
+  margin-right: 5px;
+  border:1px solid #ccc; 
+  border-radius: 6px;
+}
+.item_pro{
+	display: flex;
+  height:130px;
+	flex-direction: column;
+  border-top:1rpx solid #eee;
+  margin-top: 2px;
+	padding:30rpx;
+  background: #ffffff;
+}
+.item_bot{
+	width: 100%;
+	height: 100px;
+}
+.add_pic{
+  margin-top:20rpx;
+  width:100%;
+  height:100px;
+  line-height:200rpx;
+  text-align:center;
+  background:url(http://bmob-cdn-7744.b0.upaiyun.com/2016/11/23/95953c8b40f0d089800ebec438581cc4.png) no-repeat left center;
+  background-size:160rpx auto;
+  padding-left: 20px;
+  color: #b2b2b2;
+
+}
+.image_box{
+  width:100%;
+  height: 50px;
+  background:#fff;
+  margin-top:20rpx;
+  margin-bottom:20rpx;
+  padding:10px 40rpx 10rpx;
+}
+.picPre{
+  width:50%;
+  margin:0 auto;
+  position:relative;
+  box-sizing:border-box;
+}
+.picPre image{
+  width:100px;
+  height:100px;
+}
+.picPre view{
+  position: absolute;
+  right:0px;
+  top:-20rpx;
+  width:15px;
+  height:15px;
+  background:url(http://bmob-cdn-7744.b0.upaiyun.com/2016/11/23/23e708d8401db28080a47d384712f765.png) no-repeat;
+  background-size: cover;
+}

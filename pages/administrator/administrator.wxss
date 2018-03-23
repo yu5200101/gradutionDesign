@@ -1,0 +1,19 @@
+.box{
+	display: flex;
+	flex-direction: column;
+	padding: 10px 0;
+	box-sizing: border-box;
+}
+.add_account,.add_password{
+	padding:8px 20px;
+	color:#646464;
+	background:#fff;
+	border-bottom:1px solid #EAEAEA;
+}
+.btn{
+	width: 80%;
+	line-height: 40px;
+	color: white;
+	margin:10px auto;
+	background: #c79147;
+}

@@ -1,0 +1,45 @@
+<loading hidden="{{loading}}">
+  页面初始化中...
+</loading>
+<form bindsubmit="formSubmit" report-submit="true">
+
+<!-- 问题类型 -->
+<view class = "item">
+<text>问题类型</text>
+<view class = "right">
+<picker 
+ name="typeIndex"
+ mode="selector"
+ class = "addre" 
+ value="{{typeIndex}}" 
+ range="{{type}}" 
+ bindchange="typePickerBindchange"
+ >
+ {{type[typeIndex]}}
+</picker>
+</view>
+</view>
+
+<!-- 上传图片 -->
+<view class = "item_pro">
+<text>上传图片</text>
+<view class="add_pic" bindtap="uploadPic" wx-if="{{!isSrc}}">
+    </view>
+    <view wx:if="{{isSrc}}" class="image_box">
+        <view  class="picPre">
+            <image src="{{src}}"  mode="scaleToFilll"></image>
+            <view bindtap="clearPic"></view>
+        </view>
+    </view>
+</view>
+
+<!-- 问题和意见 -->
+<view class = "item_pro">
+<text>问题与意见</text>
+<view class = "item_bot">
+<textarea  placeholder="{{content}}" maxlength="1000"  name = "content"/>
+</view>
+</view>
+
+    <button class = "save" loading="{{isLoading}}"  hover-start-time="200" disabled="{{isdisabled}}" formType="submit">保存</button>
+</form>

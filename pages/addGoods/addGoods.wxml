@@ -1,0 +1,69 @@
+<loading hidden="{{loading}}">
+  页面初始化中...
+</loading>
+<form bindsubmit="sendNewGood" >
+    <view class="add_pic" bindtap="uploadPic" wx-if="{{!isSrc}}">
+        <view>添加商品主图</view>
+    </view>
+    <view wx:if="{{isSrc}}" class="image_box">
+        <view  class="picPre">
+            <image src="{{src}}"  mode="scaleToFilll"></image>
+            <view bindtap="clearPic"></view>
+        </view>
+    </view>
+
+    
+    <input placeholder="输入书名"  class="add_title" name = "menu_name"/>
+    <input placeholder="输入商品数量"  class="add_title" name = "good_number"/>
+    <input placeholder="输入销售数量"  class="add_title" name = "seller_number"/>
+    <input placeholder="输入价格"  class="add_title" name = "price"/>
+      <view class="add_title">
+        <picker
+          mode="selector"
+          range="{{ menutype }}"
+          bindchange="onmenuTypeChange"
+          name = "menutypeIndex"
+          value = "{{menutypeIndex}}"
+        >
+          {{menutype[menutypeIndex]}}
+        </picker>
+      </view>
+    
+    <input placeholder="版次"  class="add_title" name = "edition"/>
+    <input placeholder="印刷时间"  class="add_title" name = "editDate"/>
+    <input placeholder="开本"  class="add_title" name = "format"/>
+    <input placeholder="纸张"  class="add_title" name = "paper"/>
+    <input placeholder="包装"  class="add_title" name = "pack"/>
+    <view class="add_title">
+        <picker
+          mode="selector"
+          range="{{ isSuit }}"
+          bindchange="isSuitChange"
+          name = "isSuitIndex"
+          value = "{{isSuitIndex}}"
+        >
+          {{isSuit[isSuitIndex]}}
+        </picker>
+      </view>
+    <input placeholder="国际标准书号ISBN"  class="add_title" name = "bookNum"/>
+    <view class="add_pic" bindtap="uploadPic1" wx-if="{{!isSrc1}}">
+        <view>商品详情图1</view>
+    </view>
+    <view wx:if="{{isSrc1}}" class="image_box">
+        <view  class="picPre">
+            <image src="{{src1}}"  mode="scaleToFilll"></image>
+            <view bindtap="clearPic1"></view>
+        </view>
+    </view>
+
+    <view class="add_pic" bindtap="uploadPic2" wx-if="{{!isSrc2}}">
+        <view>商品详情图2</view>
+    </view>
+    <view wx:if="{{isSrc2}}" class="image_box">
+        <view  class="picPre">
+            <image src="{{src2}}"  mode="scaleToFilll"></image>
+            <view bindtap="clearPic2"></view>
+        </view>
+    </view>
+    <button loading="{{isLoading}}"  hover-start-time="200" disabled="{{isdisabled}}" formType="submit">确认添加</button>
+ </form>

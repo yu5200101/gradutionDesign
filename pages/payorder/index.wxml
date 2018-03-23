@@ -1,0 +1,68 @@
+<view class="container">
+<form bindsubmit="placeOrder">
+<view class="zan-panel" style="height:70px;">
+  <navigator url="../addr/index">
+    <view class="zan-cell zan-cell--access">
+        <image wx:if="{{showAddr}}" src="../../images/addr.png" style="height:20px;width:20px;margin-right:10px"/> 
+        <view wx:if="{{showAddr}}" class="zan-cell__bd">收货人：{{name}}<view class="smallsize">收货地址：{{area[areaIndex]}} {{addrdetail}}</view></view>
+        <view wx:if="{{showAddr}}" class="zan-cell__ft">{{tel}}</view>
+         <image wx:if="{{showAddAddr}}" src="../../images/add.png" style="height:30px;width:30px;margin-right:10px"/> 
+        <view wx:if="{{showAddAddr}}" class="zan-cell__bd">新增收货地址</view>
+        <view wx:if="{{showAddAddr}}" class="zan-cell__ft"></view>
+    </view>
+  </navigator>
+  </view>
+  <view class="zan-panel" style="margin-top:10px">
+    <view class="zan-cell" wx:for="{{detail}}" wx:key="">
+      <image src="{{item.pic}}" style="height:60px;width:60px;margin-right:10px"/> 
+      <view class="zan-cell__bd" style="">{{item.name}}</view>
+      <view class="zan-cell__ft" style="color:red">￥{{item.price}} X {{item.number}}</view>
+    </view>
+    <view class="zan-cell">
+      <view class="zan-cell__bd">配送方式</view>
+      <view class="zan-cell__ft smallsize">快递</view>
+    </view>
+    <view class="zan-cell">
+      <view class="zan-cell__bd">
+        备注
+      </view>
+      <view class="zan-cell__ft">
+            <input type="text" placeholder="点击给商家留言" placeholder-style="color:#999;font-size:15px;" name="remark"/>
+      </view>
+    </view>
+    <view class="zan-cell">
+      <view class="zan-cell__bd">
+        合计
+      </view>
+      <view class="zan-cell__ft" style="color:red">
+        ￥{{totalMoney}}
+      </view>
+    </view>
+  </view>
+
+  <view class="zan-panel" style="height:38px;">
+    <view class="zan-cell zan-cell--access">
+      <view class="zan-cell__bd">优惠</view>
+      <view class="zan-cell__ft smallsize">使用优惠</view>
+    </view>
+  </view>
+
+  <view class="zan-panel" style="height:60px;">
+  <view class="zan-cell">
+      <view class="zan-cell__bd">商品金额<view>运费</view></view>
+      <view class="zan-cell__ft">￥{{totalMoney}}<view>+￥10</view></view>
+  </view>
+  </view>
+  <!--下单-->
+        <view class="Bill-layer" wx:if="{{showCart&&sumNum>0}}" bindtap="hiddenLayer"></view>
+        <view class="Bill" >
+            <view class="takeBill {{showCart?'':'bdt'}}" >
+                <view class="box-cart">合计：<text style="color:red">￥{{totalMoney+10.00}}</text></view>
+                <button class="box-right" formType="submit">
+                提交订单
+                </button>
+            </view>
+        </view>
+</form>
+</view>
+
